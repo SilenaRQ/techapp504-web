@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react"
 import logoImg from "@/imports/Logo.png"
 import saStyleLogo from "@/imports/S_A_Style_Logo.png"
+import p1 from "@/imports/P1.jfif"
+import p2 from "@/imports/P2.jfif"
+import p1_1 from "@/imports/P1-1.jfif"
+import p2_1 from "@/imports/P2-1.jfif"
+import p3 from "@/imports/P3.jfif"
+import p4 from "@/imports/P4.jfif"
+import p5 from "@/imports/P5.jfif"
 
 // ── Brand tokens ──────────────────────────────────────────────────────────────
 const C = {
@@ -201,8 +208,7 @@ const SERVICES = [
     tags: ["Python", "R", "SQL", "Machine Learning"],
     tabLabel: "Analítica de Datos",
     accent: C.teal,
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=420&fit=crop&auto=format",
+    image: p2_1,
   },
   {
     id: 2,
@@ -213,8 +219,7 @@ const SERVICES = [
     tags: ["Illustrator", "Inkscape", ".PES", ".DST", ".EXP"],
     tabLabel: "Vectorización de Imágenes",
     accent: C.yellow,
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&h=420&fit=crop&auto=format",
+    image: p2,
   },
   {
     id: 3,
@@ -225,7 +230,7 @@ const SERVICES = [
     tags: ["Instagram", "LinkedIn", "Facebook", "Branding"],
     tabLabel: "Visualización de Marcas",
     accent: '#BE9B66',
-    image: saStyleLogo,
+    image: p3,
   },
   {
     id: 4,
@@ -236,8 +241,7 @@ const SERVICES = [
     tags: ["Python", "dbt", "Microsoft SSIS"],
     tabLabel: "Automatización ETL",
     accent: C.teal,
-    image:
-      "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=640&h=420&fit=crop&auto=format",
+    image: p4,
   },
   {
     id: 5,
@@ -248,8 +252,7 @@ const SERVICES = [
     tags: ["Power BI", "DAX", "Power Query"],
     tabLabel: "Implementación Power BI",
     accent: C.yellowBr,
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&h=420&fit=crop&auto=format",
+    image: p5,
   },
 ]
 
@@ -727,7 +730,7 @@ export default function App() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=440&fit=crop&auto=format"
+                  src={p1_1}
                   alt="Analytics dashboard"
                   style={{
                     width: "100%",
@@ -1138,6 +1141,7 @@ export default function App() {
                   height: "100%",
                   objectFit: "cover",
                   display: "block",
+                  borderRadius: 50,
                 }}
               />
               <div
