@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react"
 import logoImg from "@/imports/Logo.png"
 import saStyleLogo from "@/imports/S_A_Style_Logo.png"
-import p1 from "@/imports/P1.jfif"
 import p2 from "@/imports/P2.jfif"
-import p1_1 from "@/imports/P1-1.jfif"
-import p2_1 from "@/imports/P2-1.jfif"
+import p1 from "@/imports/P1.jfif"
 import p3 from "@/imports/P3.jfif"
 import p4 from "@/imports/P4.jfif"
 import p5 from "@/imports/P5.jfif"
@@ -208,7 +206,7 @@ const SERVICES = [
     tags: ["Python", "R", "SQL", "Machine Learning"],
     tabLabel: "Analítica de Datos",
     accent: C.teal,
-    image: p2_1,
+    image: p2,
   },
   {
     id: 2,
@@ -219,7 +217,7 @@ const SERVICES = [
     tags: ["Illustrator", "Inkscape", ".PES", ".DST", ".EXP"],
     tabLabel: "Vectorización de Imágenes",
     accent: C.yellow,
-    image: p2,
+    image: p3,
   },
   {
     id: 3,
@@ -230,7 +228,7 @@ const SERVICES = [
     tags: ["Instagram", "LinkedIn", "Facebook", "Branding"],
     tabLabel: "Visualización de Marcas",
     accent: '#BE9B66',
-    image: p3,
+    image: saStyleLogo,
   },
   {
     id: 4,
@@ -241,7 +239,7 @@ const SERVICES = [
     tags: ["Python", "dbt", "Microsoft SSIS"],
     tabLabel: "Automatización ETL",
     accent: C.teal,
-    image: p4,
+    image: p5,
   },
   {
     id: 5,
@@ -252,7 +250,7 @@ const SERVICES = [
     tags: ["Power BI", "DAX", "Power Query"],
     tabLabel: "Implementación Power BI",
     accent: C.yellowBr,
-    image: p5,
+    image: p4,
   },
 ]
 
@@ -730,7 +728,7 @@ export default function App() {
                 }}
               >
                 <img
-                  src={p1_1}
+                  src={p1}
                   alt="Analytics dashboard"
                   style={{
                     width: "100%",
