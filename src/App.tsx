@@ -6,6 +6,11 @@ import p1 from "@/imports/P1.jfif"
 import p3 from "@/imports/P3.jfif"
 import p4 from "@/imports/P4.jfif"
 import p5 from "@/imports/P5.jfif"
+import teamAD from "@/imports/AD.jfif"
+import teamDesign from "@/imports/Desing.jfif"
+import teamDS from "@/imports/DS.jfif"
+import teamIAD from "@/imports/IAD.jfif"
+import teamUX from "@/imports/UX.jfif"
 
 // ── Brand tokens ──────────────────────────────────────────────────────────────
 const C = {
@@ -321,6 +326,14 @@ const METHODOLOGY = [
       </svg>
     ),
   },
+]
+
+const TEAM = [
+  { name: "Arquitectura de Datos | Power BI", photo: teamAD },
+  { name: "Vectorización | Diseño", photo: teamDesign },
+  { name: "Backend", photo: teamDS },
+  { name: "Analista de Datos", photo: teamIAD },
+  { name: "UX|UI", photo: teamUX },
 ]
 
 const TECH_LOGOS = [
@@ -933,6 +946,105 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* ── TEAM STRIP ───────────────────────────────────────────────────────── */}
+      <div
+        style={{
+          background: C.mid,
+          borderTop: `1px solid ${C.border}`,
+          borderBottom: `1px solid ${C.border}`,
+          padding: "40px 0",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            padding: "0 24px",
+          }}
+        >
+          <span
+            style={{
+              display: "block",
+              textAlign: "center",
+              fontSize: 11,
+              fontWeight: 700,
+              color: "rgba(255,255,255,0.25)",
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              marginBottom: 28,
+            }}
+          >
+            Nuestro Equipo
+          </span>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "clamp(24px, 5vw, 56px)",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            {TEAM.map((t) => (
+              <div
+                key={t.name}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 12,
+                  width: 150,
+                  opacity: 0.92,
+                  transition: "opacity 0.2s, transform 0.2s",
+                  cursor: "default",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.opacity = "1"
+                  e.currentTarget.style.transform = "translateY(-2px)"
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.opacity = "0.92"
+                  e.currentTarget.style.transform = "translateY(0)"
+                }}
+              >
+                <div
+                  style={{
+                    width: 108,
+                    height: 108,
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    border: `2px solid ${C.border}`,
+                    flexShrink: 0,
+                  }}
+                >
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                </div>
+                <span
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: "white",
+                    textAlign: "center",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {t.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ── SERVICES ─────────────────────────────────────────────────────────── */}
       <section
