@@ -351,9 +351,9 @@ const LOGO_PARTS = [
 ]
 
 const TEAM = [
-  { name: "Arquitectura de Datos | Power BI", photo: teamAD },
-  { name: "Vectorización | Diseño", photo: teamDesign },
-  { name: "Backend", photo: teamDS },
+  { name: "Arquitectura Datos|Power BI", photo: teamAD },
+  { name: "Vectorización|Diseño", photo: teamDesign },
+  { name: "DevOps", photo: teamDS },
   { name: "Analista de Datos", photo: teamIAD },
   { name: "UX|UI", photo: teamUX },
 ]
