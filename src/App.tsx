@@ -400,6 +400,16 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("inicio")
   const [activeService, setActiveService] = useState(0)
+  const [introPhase, setIntroPhase] = useState("revealing") // revealing → holding → hidden
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setIntroPhase("fading"), 1600)
+    const t2 = setTimeout(() => setIntroPhase("hidden"), 2200)
+    return () => {
+      clearTimeout(t1)
+      clearTimeout(t2)
+    }
+  }, [])
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -422,6 +432,46 @@ export default function App() {
         color: C.light,
       }}
     >
+      {/* ── INTRO SPLASH ────────────────────────────────────────────────────── */}
+      {introPhase !== "hidden" && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: C.blackDeep,
+            opacity: introPhase === "fading" ? 0 : 1,
+            transition: "opacity 0.6s ease",
+            pointerEvents: introPhase === "fading" ? "none" : "auto",
+          }}
+        >
+          <img
+            src={logoImg}
+            alt="TechApp Software"
+            style={{
+              width: "min(220px, 45vw)",
+              display: "block",
+              clipPath:
+                introPhase === "revealing"
+                  ? "inset(0 0 0 0)"
+                  : "inset(0 0 0 0)",
+              animation: "techapp-reveal 1.3s cubic-bezier(0.65,0,0.35,1) forwards",
+            }}
+          />
+        </div>
+      )}
+
+      <style>{`
+        @keyframes techapp-reveal {
+          0% { clip-path: inset(0 0 100% 0); opacity: 0; }
+          15% { opacity: 1; }
+          100% { clip-path: inset(0 0 0% 0); opacity: 1; }
+        }
+      `}</style>
+
       {/* ── NAV ─────────────────────────────────────────────────────────────── */}
       <header
         style={{
