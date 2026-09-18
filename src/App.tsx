@@ -1313,6 +1313,7 @@ export default function App() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
+                  alignSelf: "flex-start",
                   gap: 8,
                   background: SERVICES[activeService].accent,
                   color: C.black,
