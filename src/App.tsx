@@ -339,15 +339,15 @@ const METHODOLOGY = [
 ]
 
 const LOGO_PARTS = [
-  { src: logoHair1, delay: 0.35 },
-  { src: logoHair2, delay: 0.5 },
-  { src: logoHair3, delay: 0.65 },
-  { src: logoHair4, delay: 0.8 },
-  { src: logoHair5, delay: 0.95 },
-  { src: logoEyeL, delay: 1.2 },
-  { src: logoEyeR, delay: 1.35 },
-  { src: logoMouth, delay: 1.6 },
-  { src: logoCollar, delay: 1.9 },
+  { src: logoHair1, delay: 0.5 },
+  { src: logoHair2, delay: 0.72 },
+  { src: logoHair3, delay: 0.94 },
+  { src: logoHair4, delay: 1.16 },
+  { src: logoHair5, delay: 1.38 },
+  { src: logoEyeL, delay: 1.7 },
+  { src: logoEyeR, delay: 1.92 },
+  { src: logoMouth, delay: 2.25 },
+  { src: logoCollar, delay: 2.65 },
 ]
 
 const TEAM = [
@@ -425,8 +425,8 @@ export default function App() {
   const [introPhase, setIntroPhase] = useState("revealing") // revealing → holding → hidden
 
   useEffect(() => {
-    const t1 = setTimeout(() => setIntroPhase("fading"), 3100)
-    const t2 = setTimeout(() => setIntroPhase("hidden"), 3700)
+    const t1 = setTimeout(() => setIntroPhase("fading"), 3800)
+    const t2 = setTimeout(() => setIntroPhase("hidden"), 4400)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
@@ -473,7 +473,7 @@ export default function App() {
           <div
             style={{
               position: "relative",
-              width: "min(220px, 45vw)",
+              width: "min(300px, 60vw)",
               aspectRatio: "471 / 480",
             }}
           >
@@ -500,7 +500,7 @@ export default function App() {
                   width: "100%",
                   height: "100%",
                   opacity: 0,
-                  animation: `techapp-part-in 0.35s ease forwards`,
+                  animation: `techapp-part-in 0.55s cubic-bezier(0.34,1.56,0.64,1) forwards`,
                   animationDelay: `${p.delay}s`,
                 }}
               />
@@ -511,7 +511,8 @@ export default function App() {
 
       <style>{`
         @keyframes techapp-part-in {
-          0% { opacity: 0; transform: scale(0.92); }
+          0% { opacity: 0; transform: scale(0.4); }
+          60% { opacity: 1; transform: scale(1.12); }
           100% { opacity: 1; transform: scale(1); }
         }
       `}</style>
@@ -1233,9 +1234,20 @@ export default function App() {
               border: `1px solid ${C.border}`,
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              height: 480,
             }}
           >
-            <div style={{ padding: "44px 40px" }}>
+            <div
+              style={{
+                padding: "44px 40px",
+                height: "100%",
+                boxSizing: "border-box",
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
               <div
                 style={{
                   width: 64,
@@ -1334,7 +1346,7 @@ export default function App() {
               style={{
                 background: "#333",
                 position: "relative",
-                height: 420,
+                height: "100%",
               }}
             >
               <img
