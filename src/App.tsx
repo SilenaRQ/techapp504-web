@@ -11,6 +11,16 @@ import teamDesign from "@/imports/Desing.jfif"
 import teamDS from "@/imports/DS.jfif"
 import teamIAD from "@/imports/IAD.jfif"
 import teamUX from "@/imports/UX.jfif"
+import logoBg from "@/imports/logo_parts/logo_background.png"
+import logoHair1 from "@/imports/logo_parts/parte_1.png"
+import logoHair2 from "@/imports/logo_parts/parte_3.png"
+import logoHair3 from "@/imports/logo_parts/parte_6.png"
+import logoHair4 from "@/imports/logo_parts/parte_8.png"
+import logoHair5 from "@/imports/logo_parts/parte_9.png"
+import logoEyeL from "@/imports/logo_parts/parte_4.png"
+import logoEyeR from "@/imports/logo_parts/parte_7.png"
+import logoMouth from "@/imports/logo_parts/parte_5.png"
+import logoCollar from "@/imports/logo_parts/parte_2.png"
 
 // ── Brand tokens ──────────────────────────────────────────────────────────────
 const C = {
@@ -328,6 +338,18 @@ const METHODOLOGY = [
   },
 ]
 
+const LOGO_PARTS = [
+  { src: logoHair1, delay: 0.35 },
+  { src: logoHair2, delay: 0.5 },
+  { src: logoHair3, delay: 0.65 },
+  { src: logoHair4, delay: 0.8 },
+  { src: logoHair5, delay: 0.95 },
+  { src: logoEyeL, delay: 1.2 },
+  { src: logoEyeR, delay: 1.35 },
+  { src: logoMouth, delay: 1.6 },
+  { src: logoCollar, delay: 1.9 },
+]
+
 const TEAM = [
   { name: "Arquitectura de Datos | Power BI", photo: teamAD },
   { name: "Vectorización | Diseño", photo: teamDesign },
@@ -403,8 +425,8 @@ export default function App() {
   const [introPhase, setIntroPhase] = useState("revealing") // revealing → holding → hidden
 
   useEffect(() => {
-    const t1 = setTimeout(() => setIntroPhase("fading"), 1600)
-    const t2 = setTimeout(() => setIntroPhase("hidden"), 2200)
+    const t1 = setTimeout(() => setIntroPhase("fading"), 3100)
+    const t2 = setTimeout(() => setIntroPhase("hidden"), 3700)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
@@ -448,27 +470,49 @@ export default function App() {
             pointerEvents: introPhase === "fading" ? "none" : "auto",
           }}
         >
-          <img
-            src={logoImg}
-            alt="TechApp Software"
+          <div
             style={{
+              position: "relative",
               width: "min(220px, 45vw)",
-              display: "block",
-              clipPath:
-                introPhase === "revealing"
-                  ? "inset(0 0 0 0)"
-                  : "inset(0 0 0 0)",
-              animation: "techapp-reveal 1.3s cubic-bezier(0.65,0,0.35,1) forwards",
+              aspectRatio: "471 / 480",
             }}
-          />
+          >
+            <img
+              src={logoBg}
+              alt=""
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                animation: "techapp-part-in 0.5s ease forwards",
+                opacity: 0,
+              }}
+            />
+            {LOGO_PARTS.map((p, i) => (
+              <img
+                key={i}
+                src={p.src}
+                alt=""
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  opacity: 0,
+                  animation: `techapp-part-in 0.35s ease forwards`,
+                  animationDelay: `${p.delay}s`,
+                }}
+              />
+            ))}
+          </div>
         </div>
       )}
 
       <style>{`
-        @keyframes techapp-reveal {
-          0% { clip-path: inset(0 0 100% 0); opacity: 0; }
-          15% { opacity: 1; }
-          100% { clip-path: inset(0 0 0% 0); opacity: 1; }
+        @keyframes techapp-part-in {
+          0% { opacity: 0; transform: scale(0.92); }
+          100% { opacity: 1; transform: scale(1); }
         }
       `}</style>
 
@@ -1290,7 +1334,7 @@ export default function App() {
               style={{
                 background: "#333",
                 position: "relative",
-                minHeight: 320,
+                height: 420,
               }}
             >
               <img
