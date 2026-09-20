@@ -1,7 +1,7 @@
 {
   "description": "Offers a streamlined platform to update website services and logos while preserving existing color palettes, enhancing brand consistency and user engagement.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
